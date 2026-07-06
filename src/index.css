@@ -1,25 +1,4 @@
-/* 나눔스퀘어라운드 (Naver, 상업용 무료) — 둥근 기하학 고딕, 정직·고가독 */
-@font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundR.woff2')
-    format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundB.woff2')
-    format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'NanumSquareRound';
-  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundEB.woff2')
-    format('woff2');
-  font-weight: 800;
-  font-display: swap;
-}
+/* 본문: Pretendard (index.html에서 로딩) · 제목: 도현체(Do Hyeon, Google Fonts) */
 
 :root {
   /* 로고 색 기반 파스텔 (핑크·블루·퍼플·그린·옐로 + 슬레이트 아웃라인)
@@ -47,9 +26,12 @@
   --tint-mint: #e6f1e8;
   --tint-yellow: #f8f0d8;
 
-  /* 전체 나눔스퀘어라운드 적용 */
-  --sans: 'NanumSquareRound', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  --hand: 'NanumSquareRound', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* 본문: Pretendard, 제목: 도현체 */
+  --sans: 'Pretendard Variable', 'Pretendard', system-ui,
+    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --hand: 'Pretendard Variable', 'Pretendard', system-ui,
+    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --title: 'Do Hyeon', 'Pretendard Variable', 'Apple SD Gothic Neo', sans-serif;
   /* 기본은 손글씨, 가독성이 필요한 곳만 --sans 로 개별 지정 */
   --display: var(--hand);
   --body: var(--hand);
@@ -305,11 +287,11 @@ body {
 }
 
 .hero__title {
-  font-family: var(--hand);
-  font-weight: 700;
+  font-family: var(--title);
+  font-weight: 400;
   margin: 4px 0 0;
-  font-size: 33px;
-  line-height: 1.28;
+  font-size: 32px;
+  line-height: 1.3;
   color: var(--green);
   letter-spacing: 0;
   white-space: pre-line;
@@ -465,10 +447,10 @@ body {
 }
 
 .section-head__title {
-  font-family: var(--hand);
-  font-weight: 700;
+  font-family: var(--title);
+  font-weight: 400;
   margin: 0;
-  font-size: 26px;
+  font-size: 25px;
   color: var(--green);
   letter-spacing: 0;
 }
