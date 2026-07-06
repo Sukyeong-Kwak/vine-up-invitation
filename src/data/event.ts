@@ -10,8 +10,8 @@ export interface Play {
 
 export const event = {
   academy: 'Vine English',
-  scriptTitle: 'English Play Day',
-  title: '아이들의 영어 연극에\n초대합니다!',
+  showcase: 'Vine Up',
+  title: '아이들의 영어 연극에 초대합니다!',
   subtitle: '작은 배우들이 준비한 다섯 편의 무대',
   // 인사말
   greeting:

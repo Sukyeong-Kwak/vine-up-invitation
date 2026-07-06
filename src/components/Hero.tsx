@@ -21,7 +21,8 @@ export default function Hero() {
         <span className="hero__wordmark">VINE ENGLISH</span>
       </div>
 
-      <h1 className="hero__title">{event.title}</h1>
+      <h1 className="hero__title">{event.showcase}</h1>
+      <p className="hero__lead">{event.title}</p>
       <p className="hero__subtitle">{event.subtitle}</p>
 
       <div className="hero__cta">
