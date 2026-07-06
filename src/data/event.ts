@@ -30,6 +30,9 @@ export const event = {
 // 모바일에서 누르면 네이버 지도 앱으로, PC에서는 웹으로 정확히 열립니다.
 export const naverPlaceUrl = 'https://naver.me/xAARFN33'
 
+// 카카오맵 장소 링크 (모바일=앱, PC=웹으로 정확히 열림)
+export const kakaoPlaceUrl = 'https://kko.to/6v9XjiKGWa'
+
 // 구글 지도 임베드용 주소 검색어 (상호명 제외 — 지오코딩 정확도 ↑)
 export const mapEmbedQuery = '경기 용인시 기흥구 신정로 123-1'
 

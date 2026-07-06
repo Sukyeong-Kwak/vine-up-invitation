@@ -1,9 +1,9 @@
 // 지도 앱 연결 (네이버지도 · 카카오맵 · 티맵)
-// 네이버: 확인된 장소 링크(naver.me)로 정확히 이동
-// 카카오/티맵: 좌표 대신 "주소·상호 검색"으로 열어 위치 오차를 없앰
-import { naverPlaceUrl, mapSearchQuery } from '../data/event'
+// 네이버·카카오: 확인된 장소 링크로 정확히 이동
+// 티맵: 정확한 좌표로 길찾기(route)
+import { naverPlaceUrl, kakaoPlaceUrl, venueCoord, event } from '../data/event'
 
-const s = encodeURIComponent(mapSearchQuery)
+const goalName = encodeURIComponent(event.venueName)
 
 const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
 const isIOS = /iphone|ipad|ipod/i.test(ua)
@@ -37,15 +37,16 @@ export const mapApps: MapApp[] = [
   {
     id: 'kakao',
     label: '카카오맵',
-    kind: 'scheme',
-    url: `kakaomap://search?q=${s}`,
-    fallback: `https://map.kakao.com/?q=${s}`,
+    kind: 'link',
+    url: kakaoPlaceUrl,
+    fallback: kakaoPlaceUrl,
   },
   {
     id: 'tmap',
     label: '티맵',
     kind: 'scheme',
-    url: `tmap://search?name=${s}`,
+    // 정확한 좌표로 길찾기 (goalx=경도, goaly=위도)
+    url: `tmap://route?goalname=${goalName}&goalx=${venueCoord.lng}&goaly=${venueCoord.lat}`,
     fallback: TMAP_STORE,
   },
 ]
