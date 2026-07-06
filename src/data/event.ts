@@ -24,13 +24,15 @@ export const event = {
   venueNote: '카페 공간에서 편안하게 관람하실 수 있습니다.',
 } as const
 
-// 지도 검색어 (네이버/구글 지도 링크에 사용)
-export const mapQuery = '경기도 용인시 기흥구 신정로 123-1 바인하우스'
+// 네이버 지도 장소 링크 (사용자가 확인한 정확한 위치)
+// 모바일에서 누르면 네이버 지도 앱으로, PC에서는 웹으로 정확히 열립니다.
+export const naverPlaceUrl = 'https://naver.me/xAARFN33'
 
-// 네이버 Dynamic Map(JS API) 마커용 좌표.
-// 네이버 클라이언트 ID(VITE_NAVER_MAP_CLIENT_ID)를 설정하면 실제 네이버 지도가 표시됩니다.
-// 아래 좌표는 신정로 인근 근사값이니 정확한 위치로 수정해서 쓰세요.
-export const venueCoord = { lat: 37.2701, lng: 127.1523 }
+// 구글 지도 임베드용 주소 검색어 (상호명 제외 — 지오코딩 정확도 ↑)
+export const mapEmbedQuery = '경기 용인시 기흥구 신정로 123-1'
+
+// 카카오맵 · 티맵 앱 검색용 (상호명 포함)
+export const mapSearchQuery = '용인 신정로 바인하우스'
 
 export const plays: Play[] = [
   {

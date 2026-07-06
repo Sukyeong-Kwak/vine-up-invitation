@@ -24,20 +24,14 @@ npm run preview  # 빌드 결과 미리보기
 src/data/event.ts
 ```
 
-## 지도
+## 지도 (API 키 불필요)
 
-- 기본은 **키가 필요 없는 구글 지도 임베드**로 위치를 표시하고,
-  하단에 **네이버 지도 길찾기 / 카카오맵 보기** 버튼을 제공합니다.
-- **실제 네이버 지도(Dynamic Map)** 를 임베드하려면 무료 클라이언트 ID를 발급받아
-  `.env` 에 넣으세요. (`.env.example` 참고)
-
-  ```
-  VITE_NAVER_MAP_CLIENT_ID=발급받은_ID
-  ```
-
-  발급: Naver Cloud Platform → AI·NAVER API → Maps.
-  ID가 있으면 자동으로 네이버 지도가, 없으면 구글 지도가 표시됩니다.
-  마커 좌표는 `src/data/event.ts` 의 `venueCoord` 에서 조정합니다.
+- 표시용 지도는 **키가 필요 없는 구글 지도 임베드**입니다.
+- 정확한 위치·길찾기는 앱 연결 버튼으로 처리합니다:
+  - **네이버지도**: 확인된 장소 링크(`naver.me`)로 앱/웹에 정확히 연결
+  - **카카오맵 · 티맵**: 좌표 대신 주소·상호 검색으로 앱 실행(미설치 시 웹/스토어 폴백)
+- 장소를 바꾸려면 `src/data/event.ts` 의 `naverPlaceUrl`, `mapEmbedQuery`,
+  `mapSearchQuery`, `venueAddress` 값만 수정하세요.
 
 ## Vercel 배포
 

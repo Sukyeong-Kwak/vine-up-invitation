@@ -392,6 +392,19 @@ body {
   background: var(--tmap);
 }
 
+.map__exact {
+  display: block;
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--green-soft);
+  text-decoration: none;
+}
+
+.map__exact:active {
+  color: var(--green);
+}
+
 /* ---------- Footer ---------- */
 .footer {
   margin-top: 44px;
