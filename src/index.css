@@ -1,3 +1,12 @@
+/* 어비 찌바체 (상업용 무료, noonnu) */
+@font-face {
+  font-family: 'UhBeeZZIBA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/UhBeeZZIBA-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+
 :root {
   /* 로고 색 기반 파스텔 (핑크·블루·퍼플·그린·옐로 + 슬레이트 아웃라인)
      ※ 변수명 유지: green=슬레이트(헤딩), clay=핑크 액센트 */
@@ -16,9 +25,9 @@
   --kakao: #fee500;
   --tmap: #2f6bec;
 
-  --sans: 'Pretendard Variable', 'Pretendard', system-ui,
-    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  --hand: 'Gaegu', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* 전체 어비 찌바체 적용 (--sans 도 동일 폰트로) */
+  --sans: 'UhBeeZZIBA', 'Jua', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --hand: 'UhBeeZZIBA', 'Jua', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   /* 기본은 손글씨, 가독성이 필요한 곳만 --sans 로 개별 지정 */
   --display: var(--hand);
   --body: var(--hand);
@@ -106,6 +115,68 @@ body {
   color: var(--green-soft);
 }
 
+.hero__deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero__deco--grape {
+  top: 18px;
+  left: 20px;
+  width: 22px;
+  color: #a98fda;
+  transform: rotate(-8deg);
+}
+
+.hero__deco--heart {
+  top: 26px;
+  right: 22px;
+  width: 20px;
+  color: #e88ba0;
+  transform: rotate(10deg);
+}
+
+.hero__deco--spark {
+  top: 70px;
+  left: 34px;
+  width: 13px;
+  color: #eaca73;
+}
+
+.hero__deco--star {
+  top: 92px;
+  right: 30px;
+  width: 15px;
+  color: #eaca73;
+  opacity: 0.85;
+  transform: rotate(6deg);
+}
+
+.hero__deco--flower {
+  bottom: 74px;
+  left: 24px;
+  width: 20px;
+  color: #9fd3ba;
+  opacity: 0.85;
+}
+
+.hero__deco--heart2 {
+  bottom: 60px;
+  right: 26px;
+  width: 14px;
+  color: #f0a6b4;
+  opacity: 0.7;
+  transform: rotate(-12deg);
+}
+
+.hero__deco--spark2 {
+  bottom: 96px;
+  right: 60px;
+  width: 11px;
+  color: #a98fda;
+  opacity: 0.8;
+}
+
 .hero__brand {
   display: flex;
   flex-direction: column;
@@ -132,7 +203,7 @@ body {
 }
 
 .hero__wordmark {
-  font-family: var(--display);
+  font-family: var(--sans);
   font-weight: 800;
   letter-spacing: 3px;
   font-size: 13px;
@@ -252,8 +323,45 @@ body {
   padding: 34px 24px 8px;
 }
 
+.deco-cluster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 2px 0 20px;
+}
+
+.dc {
+  flex: 0 0 auto;
+}
+.dc--1 {
+  width: 20px;
+  color: #a98fda;
+  transform: translateY(-4px) rotate(-8deg);
+}
+.dc--2 {
+  width: 14px;
+  color: #eaca73;
+  transform: translateY(6px) rotate(8deg);
+}
+.dc--3 {
+  width: 16px;
+  color: #f0a6b4;
+  transform: translateY(-2px) rotate(6deg);
+}
+.dc--4 {
+  width: 18px;
+  color: #9fd3ba;
+  transform: translateY(5px);
+}
+.dc--5 {
+  width: 12px;
+  color: #8fc7db;
+  transform: translateY(-6px);
+}
+
 .details__intro {
-  margin: 4px 0 30px;
+  margin: 4px 0 22px;
   padding: 0 6px;
   text-align: center;
   font-size: 15px;

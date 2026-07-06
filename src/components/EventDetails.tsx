@@ -1,10 +1,19 @@
 import { event } from '../data/event'
 import Countdown from './Countdown'
+import { Grape, Heart, Star, Flower, Sparkle } from './Doodles'
 
 export default function EventDetails() {
   return (
     <section className="details">
       <p className="details__intro">{event.greeting}</p>
+
+      <div className="deco-cluster" aria-hidden="true">
+        <Grape className="dc dc--1" />
+        <Star className="dc dc--2" />
+        <Heart className="dc dc--3" />
+        <Flower className="dc dc--4" />
+        <Sparkle className="dc dc--5" />
+      </div>
 
       <div className="details__list">
         <div className="detail detail--datetime">
