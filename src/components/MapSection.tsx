@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { event, mapQuery, venueCoord } from '../data/event'
+import { mapApps, openMap } from '../lib/mapLinks'
 
 const q = encodeURIComponent(mapQuery)
-
-// 링크 (키 불필요)
-const naverSearchUrl = `https://map.naver.com/p/search/${q}`
-const kakaoSearchUrl = `https://map.kakao.com/?q=${q}`
 const googleEmbedUrl = `https://maps.google.com/maps?q=${q}&hl=ko&z=16&output=embed`
 
 // 네이버 Dynamic Map은 클라이언트 ID가 있을 때만 사용 (무료, Naver Cloud Platform 발급)
@@ -48,7 +45,7 @@ export default function MapSection() {
   const useNaverMap = Boolean(naverClientId)
 
   return (
-    <section className="map">
+    <section className="map" id="map">
       <div className="section-head">
         <h2 className="section-head__title">오시는 길</h2>
         <p className="section-head__sub">{event.venueName}</p>
@@ -71,26 +68,21 @@ export default function MapSection() {
         )}
       </div>
 
-      <p className="map__addr">📍 {event.venueAddress}</p>
+      <p className="map__addr">{event.venueAddress}</p>
       <p className="map__note">{event.venueNote}</p>
 
-      <div className="map__buttons">
-        <a
-          className="btn btn--naver"
-          href={naverSearchUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          네이버 지도로 길찾기
-        </a>
-        <a
-          className="btn btn--kakao"
-          href={kakaoSearchUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          카카오맵으로 보기
-        </a>
+      <p className="map__cta">지도 앱으로 길찾기</p>
+      <div className="map__apps">
+        {mapApps.map((app) => (
+          <button
+            key={app.id}
+            type="button"
+            className={`appbtn appbtn--${app.id}`}
+            onClick={() => openMap(app)}
+          >
+            {app.label}
+          </button>
+        ))}
       </div>
     </section>
   )

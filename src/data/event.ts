@@ -4,22 +4,24 @@ export interface Play {
   id: string
   title: string
   titleKo: string
-  emoji: string
   summary: string
   color: string
 }
 
 export const event = {
   academy: 'Vine English',
-  title: '영어 발표회 초대장',
-  subtitle: '아이들의 영어 연극에 부모님을 초대합니다',
+  title: '영어 발표회에 초대합니다',
+  subtitle: '아이들이 준비한 세 편의 영어 연극',
+  // 인사말
+  greeting:
+    '한 학기 동안 아이들이 조금씩 익혀 온 영어를 작은 무대로 준비했습니다. 아직 서툴지만 스스로 대사를 외우고 무대에 서는 그 모습을, 부모님께 꼭 보여드리고 싶습니다. 잠시 시간을 내어 아이의 무대를 함께 지켜봐 주세요.',
   // 날짜/시간
-  date: '2026년 7월 11일 (토)',
-  time: '오전 11:00 시작',
+  date: '2026년 7월 11일 토요일',
+  time: '오전 11시',
   // 장소
-  venueName: '바인하우스 (Bine House)',
+  venueName: '바인하우스',
   venueAddress: '경기도 용인시 기흥구 신정로 123-1 H동',
-  venueNote: '아늑한 카페에서 편안하게 아이들의 무대를 감상하세요.',
+  venueNote: '카페 공간에서 편안하게 관람하실 수 있습니다.',
 } as const
 
 // 지도 검색어 (네이버/구글 지도 링크에 사용)
@@ -35,27 +37,24 @@ export const plays: Play[] = [
     id: 'caillou',
     title: 'Caillou at Daycare',
     titleKo: '까이유의 어린이집',
-    emoji: '🎒',
     summary:
-      '첫 등원날, 긴장한 까이유가 새 친구들과 선생님을 만나며 어린이집의 즐거움을 발견하는 이야기.',
-    color: '#f2cc8f',
+      '첫 등원날의 까이유. 낯선 곳에서 새 친구와 선생님을 만나 마음을 여는 이야기예요.',
+    color: '#c79a5b',
   },
   {
     id: 'peppa-bubbles',
-    title: 'Peppa Pig – Bubbles',
-    titleKo: '페파 피그 – 비눗방울',
-    emoji: '🫧',
+    title: 'Peppa Pig — Bubbles',
+    titleKo: '페파 피그 · 비눗방울',
     summary:
-      '페파가 동생 조지에게 비눗방울 부는 법을 알려주며 함께 웃음 짓는 사랑스러운 이야기.',
-    color: '#a8dadc',
+      '페파가 동생 조지에게 비눗방울 부는 법을 알려주는, 남매의 다정한 하루예요.',
+    color: '#7fa3b3',
   },
   {
     id: 'peppa-jelly',
-    title: 'Peppa Pig – Jelly',
-    titleKo: '페파 피그 – 젤리',
-    emoji: '🍮',
+    title: 'Peppa Pig — Jelly',
+    titleKo: '페파 피그 · 젤리',
     summary:
-      '페파와 조지가 대디피그와 함께 주방에서 젤리를 만들며 벌어지는 유쾌한 소동.',
-    color: '#e29578',
+      '아빠와 함께 주방에서 젤리를 만들며 벌어지는 페파네 가족의 유쾌한 소동이에요.',
+    color: '#cf8a7d',
   },
 ]
