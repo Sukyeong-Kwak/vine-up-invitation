@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Hero from './components/Hero'
 import EventDetails from './components/EventDetails'
 import PlayList from './components/PlayList'
@@ -6,14 +7,17 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="page">
-      <main className="card">
-        <Hero />
-        <EventDetails />
-        <PlayList />
-        <MapSection />
-        <Footer />
-      </main>
-    </div>
+    <>
+      <div className="page">
+        <main className="card">
+          <Hero />
+          <EventDetails />
+          <PlayList />
+          <MapSection />
+          <Footer />
+        </main>
+      </div>
+      <Analytics />
+    </>
   )
 }
