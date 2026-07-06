@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { event, naverPlaceUrl, venueCoord } from '../data/event'
+import { event, venueCoord } from '../data/event'
 import { mapApps, openMap } from '../lib/mapLinks'
 import CopyButton from './CopyButton'
 
@@ -125,15 +125,6 @@ export default function MapSection() {
           </button>
         ))}
       </div>
-
-      <a
-        className="map__exact"
-        href={naverPlaceUrl}
-        target="_blank"
-        rel="noreferrer"
-      >
-        정확한 위치를 네이버 지도에서 확인하기 →
-      </a>
     </section>
   )
 }
