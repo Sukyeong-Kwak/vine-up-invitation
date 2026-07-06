@@ -11,6 +11,8 @@ export default function Hero() {
       <Flower className="hero__deco hero__deco--flower" />
       <Heart className="hero__deco hero__deco--heart2" />
       <Sparkle className="hero__deco hero__deco--spark2" />
+      <Star className="hero__deco hero__deco--star2" />
+      <Grape className="hero__deco hero__deco--grape2" />
 
       <div className="hero__brand">
         <span className="hero__logo">
@@ -24,7 +26,7 @@ export default function Hero() {
 
       <div className="hero__cta">
         <a className="hero__mapbtn hero__mapbtn--go" href="#plays">
-          연극 보러 가기
+          연극 소개 보기
         </a>
         <a className="hero__mapbtn" href="#map">
           오시는 길

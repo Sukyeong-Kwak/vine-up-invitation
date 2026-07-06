@@ -1,33 +1,55 @@
-/* 어비 찌바체 (상업용 무료, noonnu) */
+/* 나눔스퀘어라운드 (Naver, 상업용 무료) — 둥근 기하학 고딕, 정직·고가독 */
 @font-face {
-  font-family: 'UhBeeZZIBA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/UhBeeZZIBA-Regular.woff')
-    format('woff');
-  font-weight: normal;
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundR.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundB.woff2')
+    format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/innks/NanumSquareRound@master/NanumSquareRoundEB.woff2')
+    format('woff2');
+  font-weight: 800;
   font-display: swap;
 }
 
 :root {
   /* 로고 색 기반 파스텔 (핑크·블루·퍼플·그린·옐로 + 슬레이트 아웃라인)
      ※ 변수명 유지: green=슬레이트(헤딩), clay=핑크 액센트 */
-  --paper: #f4f3f6;
+  --paper: #f5f4f1;
   --cream: #ffffff;
-  --cream-2: #f7f5f8;
+  --cream-2: #eef4ec; /* 푸터: 옅은 민트 (라벤더 일색 탈피) */
   --card: #ffffff;
-  --mint: #f3ebf1;
-  --green: #433c50;
-  --green-soft: #786f86;
-  --clay: #e88ba0;
-  --ink: #423c4c;
-  --ink-soft: #6f6879;
-  --line: #ece9ef;
+  --mint: #eef2e8; /* 칩 기본: 옅은 세이지 */
+  --green: #201f24; /* 글씨: 검정 */
+  --green-soft: #6f6a78; /* 보조 텍스트 */
+  --point: #2c5d3a; /* 포인트: 진초록 */
+  --clay: #ec7f98; /* 핑크 액센트 (채도 ↑) */
+  --ink: #201f24; /* 본문: 검정 */
+  --ink-soft: #5c5766; /* 보조 (조금 진하게) */
+  --line: #e8e5ec;
   --naver: #03c75a;
   --kakao: #fee500;
   --tmap: #2f6bec;
 
-  /* 전체 어비 찌바체 적용 (--sans 도 동일 폰트로) */
-  --sans: 'UhBeeZZIBA', 'Jua', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  --hand: 'UhBeeZZIBA', 'Jua', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* 파스텔 다색 틴트 (포인트 배경용) */
+  --tint-pink: #fce6ed;
+  --tint-lav: #ece6f6;
+  --tint-blue: #e4eff7;
+  --tint-mint: #e6f1e8;
+  --tint-yellow: #f8f0d8;
+
+  /* 전체 나눔스퀘어라운드 적용 */
+  --sans: 'NanumSquareRound', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --hand: 'NanumSquareRound', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   /* 기본은 손글씨, 가독성이 필요한 곳만 --sans 로 개별 지정 */
   --display: var(--hand);
   --body: var(--hand);
@@ -67,7 +89,13 @@ body {
 .card {
   width: 100%;
   max-width: 440px;
-  background: var(--cream);
+  /* 위에서 아래로 부드럽게 흰색으로 이어지는 파스텔 그라데이션 (경계 없음) */
+  background: linear-gradient(
+    180deg,
+    #efe8f7 0px,
+    #fbedf1 140px,
+    #ffffff 430px
+  );
   overflow: hidden;
 }
 
@@ -88,7 +116,7 @@ body {
   position: relative;
   text-align: center;
   padding: 40px 26px 34px;
-  background: linear-gradient(180deg, #fbf4f7 0%, var(--cream) 70%);
+  background: transparent;
 }
 
 .hero__spark {
@@ -121,31 +149,31 @@ body {
 }
 
 .hero__deco--grape {
-  top: 18px;
-  left: 20px;
+  top: 22px;
+  left: 18px;
   width: 22px;
   color: #a98fda;
   transform: rotate(-8deg);
 }
 
 .hero__deco--heart {
-  top: 26px;
-  right: 22px;
+  top: 28px;
+  right: 20px;
   width: 20px;
   color: #e88ba0;
   transform: rotate(10deg);
 }
 
 .hero__deco--spark {
-  top: 70px;
-  left: 34px;
+  top: 128px;
+  left: 26px;
   width: 13px;
   color: #eaca73;
 }
 
 .hero__deco--star {
-  top: 92px;
-  right: 30px;
+  top: 108px;
+  right: 26px;
   width: 15px;
   color: #eaca73;
   opacity: 0.85;
@@ -153,28 +181,45 @@ body {
 }
 
 .hero__deco--flower {
-  bottom: 74px;
-  left: 24px;
+  bottom: 34px;
+  left: 26px;
   width: 20px;
   color: #9fd3ba;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .hero__deco--heart2 {
-  bottom: 60px;
-  right: 26px;
+  bottom: 40px;
+  right: 28px;
   width: 14px;
   color: #f0a6b4;
-  opacity: 0.7;
+  opacity: 0.75;
   transform: rotate(-12deg);
 }
 
 .hero__deco--spark2 {
-  bottom: 96px;
-  right: 60px;
+  top: 74px;
+  right: 54px;
   width: 11px;
   color: #a98fda;
+  opacity: 0.85;
+}
+
+.hero__deco--star2 {
+  top: 80px;
+  left: 46px;
+  width: 12px;
+  color: #8fc7db;
   opacity: 0.8;
+}
+
+.hero__deco--grape2 {
+  bottom: 78px;
+  right: 22px;
+  width: 16px;
+  color: #b6a0d8;
+  opacity: 0.8;
+  transform: rotate(8deg);
 }
 
 .hero__brand {
@@ -207,7 +252,7 @@ body {
   font-weight: 800;
   letter-spacing: 3px;
   font-size: 13px;
-  color: var(--green);
+  color: var(--point);
 }
 
 .hero__script {
@@ -289,8 +334,8 @@ body {
 .hero__mapbtn {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 19px;
-  padding: 9px 18px;
+  font-size: 15px;
+  padding: 6px 15px;
   border-radius: 999px;
   letter-spacing: 0.3px;
   text-decoration: none;
@@ -388,10 +433,10 @@ body {
   flex: 0 0 auto;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 15.5px;
-  color: var(--green);
-  background: var(--mint);
-  padding: 5px 14px;
+  font-size: 13px;
+  color: var(--point);
+  background: var(--tint-mint);
+  padding: 5px 13px;
   border-radius: 999px;
 }
 
@@ -402,13 +447,13 @@ body {
 }
 
 .detail__value {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--green);
 }
 
 .detail__sub {
-  font-size: 16px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -621,16 +666,35 @@ body {
   margin-top: 44px;
   padding: 34px 24px 42px;
   text-align: center;
-  background: var(--cream-2);
+  /* 흰색에서 옅은 민트로 부드럽게 이어짐 */
+  background: linear-gradient(180deg, #ffffff 0%, var(--cream-2) 45%);
 }
 
-.footer__dot {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--clay);
-  margin: 0 auto 20px;
+.footer__deco {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  margin: 0 auto 18px;
+}
+
+.fdc {
+  flex: 0 0 auto;
+}
+.fdc--1 {
+  width: 15px;
+  color: #eaca73;
+  transform: translateY(4px) rotate(-6deg);
+}
+.fdc--2 {
+  width: 17px;
+  color: #f0a6b4;
+  transform: translateY(-3px);
+}
+.fdc--3 {
+  width: 13px;
+  color: #a98fda;
+  transform: translateY(5px);
 }
 
 .footer__msg {
@@ -649,7 +713,7 @@ body {
   font-weight: 800;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: var(--green);
+  color: var(--point);
 }
 
 /* ---------- 네이버 지도 커스텀 마커 ---------- */
