@@ -19,8 +19,10 @@ declare global {
 
 export default function MapSection() {
   const mapRef = useRef<HTMLDivElement>(null)
+  const mapObj = useRef<any>(null)
   const [ready, setReady] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [expanded, setExpanded] = useState(false)
 
   useEffect(() => {
     if (!naverClientId) return
@@ -35,6 +37,7 @@ export default function MapSection() {
       // 바인하우스 정확한 좌표로 고정
       const center = new naver.maps.LatLng(venueCoord.lat, venueCoord.lng)
       const map = new naver.maps.Map(mapRef.current, { center, zoom: 17 })
+      mapObj.current = map
 
       // 위치 강조용 원
       new naver.maps.Circle({
@@ -82,6 +85,30 @@ export default function MapSection() {
 
   const useNaver = Boolean(naverClientId) && !failed
 
+  // 전체보기 토글 시(펼칠 때·닫을 때 모두): 배경 스크롤 잠금 + 지도 리사이즈 후 바인하우스 재중심
+  useEffect(() => {
+    document.body.style.overflow = expanded ? 'hidden' : ''
+    if (window.naver && mapObj.current) {
+      const naver = window.naver
+      const map = mapObj.current
+      setTimeout(() => {
+        naver.maps.Event.trigger(map, 'resize')
+        map.setCenter(new naver.maps.LatLng(venueCoord.lat, venueCoord.lng))
+      }, 80)
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [expanded])
+
+  // ESC로 닫기
+  useEffect(() => {
+    if (!expanded) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setExpanded(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [expanded])
+
   return (
     <section className="map" id="map">
       <div className="section-head">
@@ -89,7 +116,7 @@ export default function MapSection() {
         <p className="section-head__sub">{event.venueName}</p>
       </div>
 
-      <div className="map__frame">
+      <div className={`map__frame${expanded ? ' map__frame--full' : ''}`}>
         {useNaver ? (
           <div ref={mapRef} className="map__canvas" aria-label="네이버 지도" />
         ) : (
@@ -104,6 +131,13 @@ export default function MapSection() {
         {useNaver && !ready && (
           <div className="map__loading">지도를 불러오는 중…</div>
         )}
+        <button
+          type="button"
+          className="map__expand"
+          onClick={() => setExpanded((v) => !v)}
+        >
+          {expanded ? '✕ 닫기' : '전체보기'}
+        </button>
       </div>
 
       <p className="map__addr">
