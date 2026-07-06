@@ -1,23 +1,27 @@
 :root {
-  --paper: #f4efe5;
-  --cream: #faf6ee;
-  --cream-2: #f3ecdd;
-  --card: #fffdf8;
-  --mint: #e9f0e6;
-  --green: #5d7d5b;
-  --green-soft: #90a888;
-  --clay: #c88a6a;
-  --ink: #4d473e;
-  --ink-soft: #8c8375;
-  --line: #e7ddca;
+  /* 로고 색 기반 파스텔 (핑크·블루·퍼플·그린·옐로 + 슬레이트 아웃라인)
+     ※ 변수명 유지: green=슬레이트(헤딩), clay=핑크 액센트 */
+  --paper: #f4f3f6;
+  --cream: #ffffff;
+  --cream-2: #f7f5f8;
+  --card: #ffffff;
+  --mint: #f3ebf1;
+  --green: #433c50;
+  --green-soft: #786f86;
+  --clay: #e88ba0;
+  --ink: #423c4c;
+  --ink-soft: #6f6879;
+  --line: #ece9ef;
   --naver: #03c75a;
   --kakao: #fee500;
   --tmap: #2f6bec;
 
-  --display: 'Pretendard Variable', 'Pretendard', system-ui,
+  --sans: 'Pretendard Variable', 'Pretendard', system-ui,
     'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  --body: 'Pretendard Variable', 'Pretendard', system-ui,
-    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --hand: 'Gaegu', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  /* 기본은 손글씨, 가독성이 필요한 곳만 --sans 로 개별 지정 */
+  --display: var(--hand);
+  --body: var(--hand);
 
   font-family: var(--body);
 }
@@ -30,7 +34,8 @@ html {
   scroll-behavior: smooth;
 }
 
-#map {
+#map,
+#plays {
   scroll-margin-top: 16px;
 }
 
@@ -71,9 +76,83 @@ body {
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 44px 26px 36px;
-  background: linear-gradient(180deg, var(--mint) 0%, var(--cream) 78%);
+  padding: 40px 26px 34px;
+  background: linear-gradient(180deg, #fbf4f7 0%, var(--cream) 70%);
+}
+
+.hero__spark {
+  position: absolute;
+  width: 16px;
+  color: var(--clay);
+  opacity: 0.85;
+}
+.hero__spark--1 {
+  top: 30px;
+  left: 30px;
+  width: 18px;
+  color: var(--green-soft);
+}
+.hero__spark--2 {
+  top: 58px;
+  right: 34px;
+  width: 13px;
+}
+.hero__spark--3 {
+  top: 122px;
+  left: 40px;
+  width: 12px;
+  color: var(--green-soft);
+}
+
+.hero__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.hero__logo {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 16px rgba(87, 79, 96, 0.1);
+}
+
+.hero__logo img {
+  width: 52px;
+  height: auto;
+  display: block;
+}
+
+.hero__wordmark {
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: var(--green);
+}
+
+.hero__script {
+  font-family: var(--script);
+  margin: 8px 0 2px;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--clay);
+}
+
+.hero__bow {
+  width: 54px;
+  color: var(--clay);
+  margin: 4px auto 2px;
+  display: block;
 }
 
 .hero__label {
@@ -103,20 +182,29 @@ body {
   letter-spacing: 1px;
 }
 
+.hero__balloons {
+  display: block;
+  width: 118px;
+  margin: 8px auto 6px;
+}
+
 .hero__title {
-  font-family: var(--display);
-  font-weight: 800;
-  margin: 0;
-  font-size: 31px;
-  line-height: 1.38;
+  font-family: var(--hand);
+  font-weight: 700;
+  margin: 4px 0 0;
+  font-size: 33px;
+  line-height: 1.28;
   color: var(--green);
-  letter-spacing: -0.4px;
+  letter-spacing: 0;
+  white-space: pre-line;
+  text-align: center;
 }
 
 .hero__subtitle {
   margin: 12px 0 22px;
-  font-size: 15px;
-  color: var(--ink-soft);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .hero__cta {
@@ -130,8 +218,8 @@ body {
 .hero__mapbtn {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 14.5px;
-  padding: 11px 22px;
+  font-size: 19px;
+  padding: 9px 18px;
   border-radius: 999px;
   letter-spacing: 0.3px;
   text-decoration: none;
@@ -153,43 +241,46 @@ body {
   transform: translateY(1px);
 }
 
+.hero__mapbtn--go {
+  background: var(--clay);
+  color: #fff;
+  border-color: var(--clay);
+}
+
 /* ---------- Details ---------- */
 .details {
   padding: 34px 24px 8px;
 }
 
 .details__intro {
-  margin: 0 0 26px;
-  padding: 20px 20px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
+  margin: 4px 0 30px;
+  padding: 0 6px;
+  text-align: center;
   font-size: 15px;
-  line-height: 1.95;
-  color: var(--ink);
+  line-height: 1.68;
+  color: var(--ink-soft);
   word-break: keep-all;
 }
 
 .details__list {
   display: grid;
-  gap: 12px;
+  gap: 0;
+  border-top: 1px solid var(--line);
 }
 
 .detail {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 15px 18px;
+  padding: 16px 4px;
+  border-bottom: 1px solid var(--line);
 }
 
 .detail__label {
   flex: 0 0 auto;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 13.5px;
+  font-size: 15.5px;
   color: var(--green);
   background: var(--mint);
   padding: 5px 14px;
@@ -203,14 +294,15 @@ body {
 }
 
 .detail__value {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--green);
 }
 
 .detail__sub {
-  font-size: 13.5px;
-  color: var(--ink-soft);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 /* ---------- Section head ---------- */
@@ -220,18 +312,20 @@ body {
 }
 
 .section-head__title {
-  font-family: var(--display);
-  font-weight: 800;
+  font-family: var(--hand);
+  font-weight: 700;
   margin: 0;
-  font-size: 22px;
+  font-size: 26px;
   color: var(--green);
-  letter-spacing: -0.2px;
+  letter-spacing: 0;
 }
+
 
 .section-head__sub {
   margin: 7px 0 0;
-  color: var(--ink-soft);
-  font-size: 14px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
 }
 
 /* ---------- Plays ---------- */
@@ -256,14 +350,22 @@ body {
 
 .play__art {
   flex: 0 0 auto;
-  width: 60px;
-  height: 60px;
+  width: 66px;
+  height: 66px;
   display: grid;
   place-items: center;
-  padding: 8px;
-  border-radius: 16px;
+  padding: 5px;
+  border-radius: 18px;
   color: var(--play-color, var(--clay));
-  background: color-mix(in srgb, var(--play-color) 14%, white);
+  background: color-mix(in srgb, var(--play-color) 16%, white);
+  border: 1.5px solid color-mix(in srgb, var(--play-color) 38%, white);
+}
+
+.play__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .play__body {
@@ -290,7 +392,8 @@ body {
 
 .play__titleKo {
   margin: 3px 0 8px;
-  font-size: 13.5px;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--green-soft);
 }
 
@@ -338,7 +441,7 @@ body {
   font-family: var(--display);
   font-weight: 700;
   color: var(--green);
-  font-size: 15px;
+  font-size: 16.5px;
 }
 
 .map__note {
@@ -354,7 +457,7 @@ body {
   font-family: var(--display);
   font-weight: 700;
   color: var(--ink);
-  font-size: 14.5px;
+  font-size: 16px;
 }
 
 .map__apps {
@@ -370,7 +473,7 @@ body {
   border-radius: 14px;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15.5px;
   color: #fff;
   transition: transform 0.12s ease;
 }
@@ -424,10 +527,10 @@ body {
 
 .footer__msg {
   margin: 0 0 14px;
-  font-family: var(--display);
+  font-family: var(--hand);
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 19px;
+  line-height: 1.7;
   color: var(--ink);
   word-break: keep-all;
 }
@@ -436,9 +539,249 @@ body {
   margin: 0;
   font-family: var(--display);
   font-weight: 800;
-  font-size: 14.5px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   color: var(--green);
+}
+
+/* ---------- 네이버 지도 커스텀 마커 ---------- */
+.nmap-pin {
+  position: relative;
+  width: 130px;
+  height: 66px;
+  pointer-events: none;
+  font-family: var(--sans);
+}
+
+.nmap-pin__label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e88ba0;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+}
+
+.nmap-pin__dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #e88ba0;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.nmap-pin__dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 2px solid #e88ba0;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: nmap-pulse 1.8s ease-out infinite;
+}
+
+@keyframes nmap-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* ---------- 주소 복사 버튼 ---------- */
+.map__addr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.detail__sub--addr {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.copywrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.copybtn {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--green-soft);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.12s ease, background 0.12s ease;
+}
+
+.copybtn:hover {
+  color: var(--clay);
+  background: var(--mint);
+}
+
+.copybtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.copybtn__toast {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--clay);
+}
+
+/* ---------- Calendar illustration ---------- */
+.cal {
+  width: 204px;
+  margin: 12px 0 4px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 8px 20px rgba(67, 60, 80, 0.07);
+}
+
+.cal__top {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  margin: -20px 0 8px;
+}
+
+.cal__ring {
+  width: 8px;
+  height: 14px;
+  border: 2px solid var(--green-soft);
+  border-radius: 4px;
+  background: var(--cream);
+}
+
+.cal__month {
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.cal__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px 0;
+}
+
+.cal__wd {
+  text-align: center;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 10px;
+  color: var(--ink-soft);
+  padding-bottom: 4px;
+}
+
+.cal__wd--sun {
+  color: #e0798e;
+}
+.cal__wd--sat {
+  color: #7f96c9;
+}
+
+.cal__day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 22px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cal__day--sun {
+  color: #e0798e;
+}
+.cal__day--sat {
+  color: #7f96c9;
+}
+
+.cal__day--event {
+  color: var(--clay);
+  font-weight: 800;
+}
+
+.cal__circle {
+  position: absolute;
+  width: 26px;
+  height: 24px;
+  color: var(--clay);
+  pointer-events: none;
+}
+
+/* 일시 칸 */
+.detail--datetime {
+  align-items: flex-start;
+}
+
+.detail--datetime .detail__body {
+  gap: 4px;
+  width: 100%;
+}
+
+/* ---------- D-day (시간 옆 간단 표기) ---------- */
+.dday {
+  margin-left: 7px;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--clay);
+}
+
+.dday::before {
+  content: '· ';
+  color: var(--ink-soft);
+}
+
+.dday--soon {
+  font-weight: 800;
+}
+
+/* ---------- 가독성 우선: 손글씨 대신 Pretendard ---------- */
+.hero__wordmark,
+.play__no,
+.play__title,
+.play__summary,
+.details__intro,
+.map__note,
+.map__exact {
+  font-family: var(--sans);
 }
 
 /* ---------- Narrow phones ---------- */

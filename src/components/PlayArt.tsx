@@ -61,6 +61,48 @@ export default function PlayArt({ id }: Props) {
     )
   }
 
+  if (id === 'bluey') {
+    // 문어 놀이 · 문어
+    return (
+      <svg {...common}>
+        <path
+          d="M22 36c0-9 6-15 14-15s14 6 14 15v3H22v-3Z"
+          fill="currentColor"
+          opacity="0.2"
+          stroke="currentColor"
+          strokeWidth="3"
+        />
+        <path
+          d="M22 39c-1.5 5-4 7-6.5 8M30 39v9M42 39c1.5 5 4 7 6.5 8M50 39c1.5 4.5 4 6.5 6.5 7.5"
+          stroke="currentColor"
+          strokeWidth="3"
+        />
+        <circle cx="31" cy="33" r="2.4" fill="currentColor" />
+        <circle cx="41" cy="33" r="2.4" fill="currentColor" />
+      </svg>
+    )
+  }
+
+  if (id === 'daniel') {
+    // 레스토랑 · 접시와 포크·나이프
+    return (
+      <svg {...common}>
+        <circle
+          cx="36"
+          cy="36"
+          r="14"
+          fill="currentColor"
+          opacity="0.18"
+          stroke="currentColor"
+          strokeWidth="3"
+        />
+        <circle cx="36" cy="36" r="6.5" fill="none" stroke="currentColor" strokeWidth="2.6" />
+        <path d="M15 18v13M15 31v9M12 18v9a3 3 0 0 0 6 0v-9" stroke="currentColor" strokeWidth="2.6" />
+        <path d="M57 18c-3 1-5 4-5 8s2 5 5 5m0-13v36" stroke="currentColor" strokeWidth="2.6" />
+      </svg>
+    )
+  }
+
   if (id === 'peppa-jelly') {
     // 젤리 컵
     return (
