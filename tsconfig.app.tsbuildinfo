@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/EventDetails.tsx","./src/components/Footer.tsx","./src/components/Hero.tsx","./src/components/MapSection.tsx","./src/components/PlayCard.tsx","./src/components/PlayList.tsx","./src/data/event.ts"],"version":"5.9.3"}
