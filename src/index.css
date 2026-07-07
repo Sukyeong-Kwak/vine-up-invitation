@@ -97,7 +97,7 @@ body {
 .hero {
   position: relative;
   text-align: center;
-  padding: 40px 26px 34px;
+  padding: 40px 26px 20px;
   background: transparent;
 }
 
@@ -353,7 +353,7 @@ body {
 
 /* ---------- Details ---------- */
 .details {
-  padding: 34px 24px 8px;
+  padding: 10px 24px 8px;
 }
 
 .deco-cluster {
@@ -1031,4 +1031,4 @@ body {
   .hero__deco--spark,
   .hero__deco--star2,
   .hero__deco--spark2,
-  .hero__deco--grape2 {       
+  .hero__deco--grape2 {
